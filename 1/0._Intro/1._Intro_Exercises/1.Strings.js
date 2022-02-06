@@ -37,7 +37,7 @@ console.log(totalAnotherNumber)
 console.log("Afterwards we test the type: ",typeof(totalAnotherNumber))
 
 const fixedDecimal = totalAnotherNumber.toFixed(2)
-console.log("Lastly we can use toFixed, which turn it into a string, but displays two decimals: ", totalAnotherNumber)
+console.log("Lastly we can use toFixed, which turn it into a string, but displays two decimals.: ", totalAnotherNumber)
 
 
 
