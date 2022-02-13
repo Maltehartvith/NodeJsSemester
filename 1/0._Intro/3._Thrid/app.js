@@ -3,7 +3,7 @@ const app = express();
 app.use(express.json());
 
 //opretter et objekt, samt laver et array til at indeholde objekter.
-const pilsner = {id: 1, name: "Pilsner"}
+const pilsner = {id: 1, name: "Pilsner"};
 const beerArray = [ pilsner, {id: 2, name: "IPA"} ];
 
 //Get uden id - viser alle objekter inden i beerArray
@@ -25,7 +25,7 @@ app.get(`/beers/:beersId`, (req, res) => {
 //Post til at lave en øl
 app.post(`/beers`, (req, res) => {
     //tager imod id og navn på den øl som bliver lavet
-    const beerId = req.body.id    
+    const beerId = req.body.id;
     const beerName = req.body.name; 
     
     //en auto increment, som hjælper hvis man kun skriver et navn på en øl, eller hvis id'et er taget 
@@ -59,7 +59,7 @@ app.post(`/beers`, (req, res) => {
 
 //Patch metode til at ændre en eller flere ting i et eksisterende objekt baseret på et id
 app.patch(`/beers/:beersId`, (req, res) => {
-    const beerToPatch = beerArray.find(x => x.id === parseInt(req.params.beersId))
+    const beerToPatch = beerArray.find(x => x.id === parseInt(req.params.beersId));
     
     //Error handling
     if (!beerToPatch) {
@@ -68,7 +68,7 @@ app.patch(`/beers/:beersId`, (req, res) => {
 
     //to if statements som sørger for hvis der ikke bliver ændret enten navn eller id, at det så forbliver det samme.
     if (!req.body.id) {
-        beerToPatch.id
+        beerToPatch.id;
     } else {
         beerToPatch.id = req.body.id;
     }
@@ -79,7 +79,7 @@ app.patch(`/beers/:beersId`, (req, res) => {
         beerToPatch.name = req.body.name;
     }
 
-    res.send(beerToPatch)
+    res.send(beerToPatch);
 });
 
 //Put metode til at ændre et helt objekt baseret på et id
@@ -94,19 +94,19 @@ app.put(`/beers/:beersId`, (req, res) => {
     const beerBeforeEdit = JSON.stringify(beerArray.find(x => x.id === parseInt(req.params.beersId)));
 
     //finder index vha id fra endpoint
-    const index = beerArray.findIndex(b => b.id === parseInt(req.params.beersId))
+    const index = beerArray.findIndex(b => b.id === parseInt(req.params.beersId));
 
     //laver en øl ud fra hvad der bliver skrevet i request body
-    const beer = req.body
+    const beer = req.body;
     
     //Sætter et forud bestemt id, så der ikke går ged i den.
     beer.id = parseInt(req.params.beersId);
 
     //Sætter den nye øl ind på den gamle øl's plads
-    beerArray[index] = beer
+    beerArray[index] = beer;
 
     //Skal være efter man bestemmer id og navn, så man får det opdaterede objekt
-    const beerAfterEdit = JSON.stringify(beer) 
+    const beerAfterEdit = JSON.stringify(beer); 
 
     res.send(`${beerBeforeEdit} were edited to: ${beerAfterEdit}`);
 });
@@ -122,7 +122,7 @@ app.delete(`/beers/:beersId`, (req, res) => {
     }
 
     //fjerner objektet som er fundet ved hjælp af beerArray.find() metoden
-    beerArray = beerArray.filter(beer => beer.id !== beersId)
+    beerArray = beerArray.filter(beer => beer.id !== beersId);
 
     res.send(beerToDelete + `was deleted`);
 });
