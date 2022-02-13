@@ -1,0 +1,10 @@
+pom.xml     package.json  =  we build in pom.xml in java and now we have package.json  
+Maven       npm = stands for node package manager.
+
+pom contains meta-data, building steps and dependencies
+
+meta-data is data about the project. so in pom it were maven version, project name etc.
+
+in js we have:
+
+meta-data, dependencies and scripts. 
