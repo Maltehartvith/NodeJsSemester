@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bored?</title>
+</head>
+<body>
+    <h1>Suggest activities</h1>
+    <div>
+        <p id="lol"></a>
+    </div>
+    <script>
+
+        fetch("https://www.boredapi.com/api/activity")
+        .then(res => res.json())
+        .then(res => {
+            const activityParagraph = document.getElementById("lol");
+
+            //Det som bliver skrevet efter res. er det json objekt proberty som man skal have printet ud. 
+            activityParagraph.innerText = res.activity;
+        });
+        
+    </script>
+    
+</body>
+</html>

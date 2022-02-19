@@ -1,0 +1,84 @@
+#almost-body{
+    background-image: url('/images/monkaSSS.jpg');
+    background-repeat: no-repeat;
+    background-size: 88%;
+}
+
+#almost{
+    position: absolute; 
+    top: 30%; 
+    left: 50%
+}
+
+
+#not-weekend-body {
+    background-image: url('/images/pepehands.png');
+    background-repeat: no-repeat;
+    background-position-y: 20%;
+}
+
+#sad{
+    position: absolute; 
+    top: 60%; 
+    right: 35%; 
+    transform: rotate(-20deg);
+}
+
+/*Weekend css*/
+#weekend-body{
+    overflow: hidden;
+}
+
+#weekend-boi{
+    width: 800px;
+    height: 700px;
+    position: absolute;
+    bottom: 10%;
+    right: 30%;
+}
+
+#poggers{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    animation: 2s slide-up 2s forwards;
+    animation-delay: 0s;
+    transform:translateY(100%);
+}
+
+@keyframes slide-up {
+    to {
+      transform:translateY(0);
+      
+    }
+}
+
+#slide-right {
+    width: 100%;
+    overflow: hidden;
+    margin-left: 300px;
+    max-width: 800px;
+    position: absolute;
+    top: 60%;
+    left: 30%
+}
+  
+#slide-right h2 {
+    animation: 2s slide-right 2s forwards;
+    transform:translateX(-100%);
+}
+  
+@keyframes slide-right {
+    to {
+      transform:translateX(0);
+    }
+}
+
+#main-div{
+    width: 800px; 
+    margin: auto; 
+    text-align: center;
+}

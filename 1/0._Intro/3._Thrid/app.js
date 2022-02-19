@@ -1,5 +1,9 @@
+//import express
 const express = require("express");
+//instanciate express
 const app = express();
+
+//allow body parsing with json
 app.use(express.json());
 
 //opretter et objekt, samt laver et array til at indeholde objekter.
@@ -9,6 +13,13 @@ const beerArray = [ pilsner, {id: 2, name: "IPA"} ];
 //Get uden id - viser alle objekter inden i beerArray
 app.get("/beers", (req, res) => {
     res.send(beerArray);
+});
+app.get("/kangaroofacts", (req, res) => {
+    res.send(req.query);
+});
+
+app.get("/clientgreeting/:name", (req, res) => {
+    res.send({greeting: `Hello there, ${req.params.name}`});    
 });
 
 //Get med id - viser en øl med det specifikke id
@@ -128,4 +139,7 @@ app.delete(`/beers/:beersId`, (req, res) => {
 });
 
 //Bestemmer porten for localhost.
-app.listen(8080);
+app.listen(8080, (error) => {
+    console.log("Server is running", 8080)
+});
+

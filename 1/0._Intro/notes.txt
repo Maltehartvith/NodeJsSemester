@@ -1,0 +1,17 @@
+for loops are error prone and not functional. They are overly verbose, so in general we dont like for loops in js. 
+
+You can send data with a get request in two ways
+You can use path variable which is with a number = url: localhost:8080/beers/1
+or use can use Query string = url: ?key=value&key2=value2 ex = /kangaroofacts?canKick=true
+app.get("/kangaroofacts", (req, res) => {
+    res.send(req.query);
+});
+
+
+npm -g install nodemon
+nodemon helps you with building the project for each time you save the project, so you dont have to stop it and run it again.
+
+As before where we got a static folder for the html files and css, with js we will call it public. 
+
+Things that should be looked more into: variables such as let, var and const
+Pretty code

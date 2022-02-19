@@ -48,3 +48,13 @@ for (var i = 0; i < 5; i++) {
         console.log(i);
     }, 1000);
 }
+
+
+const smartPhones = [
+    {brand: "Samsung", price: 4500},
+    {brand: "Samsung", price: 4500},
+    {brand: "Samsung", price: 4500},]
+
+const discountedPhones = smartPhones.price-500;
+
+console.log(discountedPhones)
