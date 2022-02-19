@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Is it weekend?</title>
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <div id="main-div">
@@ -77,10 +78,13 @@
                 hoursLeft = hoursLeft - 1;
                 minutesLeft = minutesLeft + 60;
             }
+
         } if ( hoursLeft < 0 && daysLeft <= 0 ) {
             hoursLeft = 0;
             minutesLeft = 0;
-        } if ( minutesLeft === NaN && hoursLeft === NaN ){
+        }
+
+        if ( isNaN(minutesLeft) || isNaN(hoursLeft)){
             document.getElementById("p").innerText = "\nYou have to fill out all the inputs!";
         } else {
             document.getElementById("p").innerText = `\nThere is: ` + daysLeft + ` day ` +  hoursLeft 
