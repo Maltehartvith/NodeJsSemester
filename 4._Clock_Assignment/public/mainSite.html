@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is it weekend?</title>
+</head>
+<body>
+    <div id="main-div">
+        <h1>Is it weekend yet?</h1>
+
+        <h2>When do you get off for the weekend? </h2>
+
+        <input type="date" id="datefield"> </input>
+        <input type="time" id="clockfield" required> </input>
+        <input type="submit" id="" onclick="check()">Let's see it! </button>
+
+        <a id="p" ></a>
+    </div>
+</body>
+
+<script>
+
+    //Script snippet that contains data
+    
+    //create variable with the current date
+    const today = new Date();
+    //creates variables to stores day, month and year based on today variable
+    let day = today.getDate();
+    let month = today.getMonth() + 1;
+    const year = today.getFullYear();
+    
+    //adds a 0 infront the day and month to get the right syntax
+    if ( day < 10 ) {
+        day = "0" + day;
+    } if ( month < 10 ) {
+        month = "0" + month;
+    }
+
+    //creates a "full date" with the right syntax for js
+    const date = year + '-' + month + '-' + day;
+
+    //inserts todays date into the date field as the minimum value
+    const input = document.getElementById("datefield");
+    input.value = date;
+    input.setAttribute("value", date);
+    
+</script>
+
+<script>
+    //script snippit with function
+    function check() {
+        const timeToWeekendDate = document.getElementById("datefield").value;
+        const timeToWeekendClock = document.getElementById("clockfield").value;
+        
+        const [hours, minutes] = timeToWeekendClock.split(':');
+        const chosenDate = new Date(timeToWeekendDate);
+        chosenDate.setHours(hours);
+        chosenDate.setMinutes(minutes);
+
+        
+        const timeATM = today.getHours() + ":" + today.getMinutes();
+        
+
+        const one_day = 1000 * 60 * 60 * 24;
+        let daysLeft = Math.round(chosenDate.getTime() - today.getTime()) / one_day;
+        daysLeft = daysLeft.toFixed(0);
+        let hoursLeft = chosenDate.getHours() - today.getHours();
+        let minutesLeft = chosenDate.getMinutes() - today.getMinutes();
+
+
+        if ( hoursLeft < 0 && daysLeft >= 1 ) {
+            daysLeft = daysLeft - 1;
+            hoursLeft = hoursLeft + 24;
+
+            if ( minutesLeft < 0 ) {
+                hoursLeft = hoursLeft - 1;
+                minutesLeft = minutesLeft + 60;
+            }
+        } if ( hoursLeft < 0 && daysLeft <= 0 ) {
+            hoursLeft = 0;
+            minutesLeft = 0;
+        } if ( minutesLeft === NaN && hoursLeft === NaN ){
+            document.getElementById("p").innerText = "\nYou have to fill out all the inputs!";
+        } else {
+            document.getElementById("p").innerText = `\nThere is: ` + daysLeft + ` day ` +  hoursLeft 
+            + ` hours and ` + minutesLeft + ` minutes left!`;
+        }
+
+    
+        localStorage.setItem( "days", daysLeft );
+        localStorage.setItem( "hours", hoursLeft );
+        localStorage.setItem( "minutes", minutesLeft );
+        
+        if ( daysLeft <= 0 && hoursLeft <= 0 && minutesLeft <= 0 ) {
+            window.location = "/weekend";
+        } if ( daysLeft <= 0 && hoursLeft <= 0 && minutesLeft > 0 || daysLeft <= 0 && hoursLeft > 0 && minutesLeft <= 0 
+        ||  daysLeft <= 0 && hoursLeft > 0 && minutesLeft > 0 ) {
+            window.location = "/almost";
+        } else if ( daysLeft > 0 ) {
+            window.location = "/pepe";
+        } 
+    }
+</script>
+</html>

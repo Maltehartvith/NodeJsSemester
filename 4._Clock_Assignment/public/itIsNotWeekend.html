@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rip</title>
+
+<link rel="stylesheet" href="./style/style.css">
+</head>
+<body id="not-weekend-body">
+
+    <h1 id="sad"></h1>
+
+</body>
+
+<script>
+    //Fetching data through the localstorage and instanciating them to print
+    let days = Number(localStorage.getItem("days"))
+    let hours = Number(localStorage.getItem("hours"));
+    let minutes = Number(localStorage.getItem("minutes"));
+    
+    if (hours < 0) {
+        minutes = 60 + hours
+        hours = 0
+    }
+    if (minutes < 0) {
+        hours -= 1
+        minutes = 60 + minutes
+    }
+    
+    const text = "Sadly there's " + days + " days, " + hours + " hours and " + minutes + " minutes left"
+    
+    document.getElementById("sad").innerText = text;
+</script>
+
+</html>
