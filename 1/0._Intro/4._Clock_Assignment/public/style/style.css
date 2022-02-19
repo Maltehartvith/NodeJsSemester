@@ -19,7 +19,7 @@
 
 #sad{
     position: absolute; 
-    top: 60%; 
+    top: 50%; 
     right: 35%; 
     transform: rotate(-20deg);
 }
