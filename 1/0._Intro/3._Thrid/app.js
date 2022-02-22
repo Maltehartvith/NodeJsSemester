@@ -71,6 +71,24 @@ app.post(`/beers`, (req, res) => {
 //Patch metode til at ændre en eller flere ting i et eksisterende objekt baseret på et id
 app.patch(`/beers/:beersId`, (req, res) => {
     const beerToPatch = beerArray.find(x => x.id === parseInt(req.params.beersId));
+ 
+    /*
+    What we did in class
+
+    const findIdForBeer = beerArray.findIndex(beer => beer.id === Number(req.params.beersId));
+
+    if (findIdForBeer !== -1){
+
+        const foundBeer = beerArray[findIdForBeer];
+        const beerToUpdate = req.body
+        const updatedBeer = { ...foundBeer, ...beerToUpdate, id: foundBeer.id };
+        beerArray[findIdForBeer] = beerToUpdate;
+
+        res.send({ data: updatedBeer })
+    } else {
+        res.status(404).send({});
+    }
+    */
     
     //Error handling
     if (!beerToPatch) {

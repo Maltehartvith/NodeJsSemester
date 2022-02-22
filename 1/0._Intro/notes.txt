@@ -15,3 +15,18 @@ As before where we got a static folder for the html files and css, with js we wi
 
 Things that should be looked more into: variables such as let, var and const
 Pretty code
+
+When you have to set the id, it is better to set a variable that pluses. When you set fx AUTO_INCREMENT++ the next time you get the id it is
+AUTO_INCREMENT'ed. if you do ++AUTO_INCREMENT it will increase at the call.
+
+AUTO_INCREMENT 3:
+AUTO_INCREMENT++ = 3
+AUTO_INCREMENT = 4
+
+or 
+++AUTO_INCREMENT = 4
+AUTO_INCREMENT = 4
+
+parseInt vs Number
+Number is hard specified to be a number, where parseInt you are "pleading" it to be a number, and with parsing int, you are specifying to be an 
+integer but with number, it can be any type of number. 
